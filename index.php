@@ -1,6 +1,6 @@
 <?php
-    $search = $_REQUEST['term'];
-    if ($search != null && $search != "") {
+    if ($_REQUEST['term'] != null && $_REQUEST['term'] != "") {
+		$search = $_REQUEST['term'];
         header("Location: search.php?term=$search");
         exit();
     }
