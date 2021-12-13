@@ -7,12 +7,11 @@
     }
 ?>
 <html>
-  <head>
+	<head>
 		<title>The Gallery - CSP Project</title>
 		<meta charset="UTF-8 (Without BOM)" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/main.css" />
 	</head>
 
 
