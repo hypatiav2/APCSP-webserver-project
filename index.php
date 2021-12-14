@@ -1,5 +1,5 @@
 <?php
-    if ($_REQUEST['term'] != null && $_REQUEST['term'] != "") {
+    if (!empty($_REQUEST["term"]) && $_REQUEST['term'] != "") {
 		$search = $_REQUEST['term'];
         header("Location: search.php?term=$search");
         exit();
@@ -19,23 +19,23 @@
 		<div id="page-wrapper">
 			<!-- Header -->
 				<div id="header" style="str">
-          <div style="background-color:rgba(0,0,0,0.6);width:100%;position:absolute;top:0px;height:100%">
+          			<div style="background-color:rgba(0,0,0,0.6);width:100%;position:absolute;top:0px;height:100%">
 					<!-- Inner -->
 						<div class="inner" style="margin:auto;top:200px;width:80%;height:fit-content;">
 							<header>
-                  <h1><a href="index.html" id="logo">The Gallery</a></h1>
-                  <hr />
-                  <div class="row">
-                      <form class="col s12" method="POST" action="" accept-charset="utf-8">
-                          <div class="row">
-                              <div class="input-field col s6" style="100px">
-                                  <input placeholder="enter an art style, era, or artist" id="search" type="text" name="term" style="width:400px;display:block;margin:auto"/>
-                                  <input style="margin-top:20px" type="submit" value="Search"></input>
-                              </div>
-                          </div>
-                      </form>
-                      <p style="color:white;padding-top:20px"></p>
-                  </div>
+								<h1><a href="index.html" id="logo">The Gallery</a></h1>
+								<hr />
+								<div class="row">
+									<form class="col s12" method="POST" action="" accept-charset="utf-8">
+										<div class="row">
+											<div class="input-field col s6" style="100px">
+												<input placeholder="enter an art style, era, or artist" id="search" type="text" name="term" style="width:400px;display:block;margin:auto"/>
+												<input style="margin-top:20px" type="submit" value="Search"></input>
+											</div>
+										</div>
+									</form>
+									<p style="color:white;padding-top:20px"></p>
+								</div>
 							</header>
 						</div>
 
@@ -47,7 +47,7 @@
 								<li><a href="search.php">Search Art</a></li>
 							</ul>
 						</nav>
-        </div>
+        		</div>
 		</div>
   </body>
 </html>
