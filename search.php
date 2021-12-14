@@ -7,18 +7,24 @@
 		<link rel="stylesheet" href="assets/main.css" />
 	</head>
     <?php
-    $search = $_GET['term'];
-    $search = str_replace(' ', '_', $search);
-    $data = "";
-    $data = file_get_contents('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles='.$search);
-    $pos = strpos($data, 'pageid');
-    $endpos = strpos($data, ',"ns');
-    if ($pos === false) {
-        echo '';
+    if (!empty($_REQUEST["term"]) && $_REQUEST['term'] != "") {
+      $search = $_GET['term'];
+      $search = str_replace(' ', '_', $search);
+      $data = "";
+      $data = file_get_contents('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles='.$search);
+      $pos = strpos($data, 'pageid');
+      $endpos = strpos($data, ',"ns');
+      if ($pos === false) {
+          echo '';
+      } else {
+          $id = substr($data, $pos+8,$endpos-$pos-8);
+      }
+      $data = json_decode($data,true);
+      $extract = $data["query"]["pages"][$id]["extract"];
     } else {
-        $id = substr($data, $pos+8,$endpos-$pos-8);
+      $extract = "";
+      $search = "art";
     }
-    $data = json_decode($data,true)
   ?>
 
 
@@ -63,13 +69,13 @@
           $link = 'https://www.metmuseum.org/art/collection/search#!?perPage=20&searchField=All&sortBy=Relevance&showOnly=withImage&q='.$search;
           echo "<iframe style='min-width:50%;max-width:3000px;height:200vh;margin:20px;margin-top:-550px;display:block;padding-left:5%;float:left' src=$link></iframe>"; ?>
 
-          <p><?php echo $data["query"]["pages"][$id]["extract"]?></p>
+          <p><?php echo $extract?></p>
           
 
 
         </div>
 
-			<script src="assets/js/main.js"></script>
+			<script src="assets/js/script.js"></script>
 
 	</body>
 </html>
