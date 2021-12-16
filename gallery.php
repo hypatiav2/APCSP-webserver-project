@@ -38,6 +38,6 @@
     <!--- Scripts -->
         <script src="assets/script.js"></script>
         <script src="assets/canvas.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 	</body>
 </html>
