@@ -1,6 +1,6 @@
 
 function setup() {
-    var myCanvas = createCanvas(1000, 400);
+    var myCanvas = createCanvas(1500, 400);
 
 }
   
