@@ -66,7 +66,7 @@
 			<!-- Main -->
 				<div class="wrapper style1" style="overflow:hidden;margin-top:50px;margin-bottom:0px;">
           <?php 
-          $link = 'https://www.metmuseum.org/art/collection/search#!?perPage=20&searchField=All&sortBy=Relevance&showOnly=withImage&q='.$search;
+          $link = 'https://www.metmuseum.org/art/collection/search#!?perPage=80&searchField=All&sortBy=Relevance&showOnly=withImage&q='.$search;
           echo "<iframe style='min-width:50%;max-width:3000px;height:200vh;margin:20px;margin-top:-550px;display:block;padding-left:5%;float:left' src=$link></iframe>"; ?>
 
           <p><?php echo $extract?></p>
