@@ -30,7 +30,9 @@
                     </nav>
 
             </div>
-            <form id="myform" action="gallery.php" method="post" enctype="multipart/form-data" style="float:right;margin:0;padding:0;position:relative;right:55px;top:200px">
+                           
+
+            <form id="myform" action="gallery.php" method="post" enctype="multipart/form-data" style="float:right;margin:0;padding:0;position:relative;right:8%;top:160px;width:100px">
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit" value="Upload to Gallery" name="submit" style="height:60px;text-align:center;padding:1px;text-wrap:wrap;width:130px">
             </form>
@@ -39,7 +41,7 @@
               
             </div>
 
-
+  <button type="button" onclick="window.location.href='otherwork.php'">See Other Work</button>   
 
 
             <style>
@@ -56,15 +58,19 @@
 
 <?php
 $target_dir = "gallery/";
+$files = scandir('gallery', SCANDIR_SORT_DESCENDING);
+$newest_file = $files[0];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+// Check if file already exists
+$target_file = $target_dir . strval(intval(substr($newest_file, 0, 1))+1) . substr(basename($_FILES["fileToUpload"]["name"]),1);
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
   } else {
     echo "File is not an image.";

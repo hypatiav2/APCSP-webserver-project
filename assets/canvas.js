@@ -8,7 +8,7 @@ function setup() {
     myCanvas.style("margin-left:-10px");
 
     colorPicker = createColorPicker('#ed225d');
-    colorPicker.position(85, height-50);
+    colorPicker.position(70, height-50);
     colorPicker.style('background-color', 'black');
 
     slider = createSlider(1, 50, 5);
@@ -24,8 +24,8 @@ function setup() {
     button2.position(70,height+120);
     button2.mousePressed(clearscreen);
 
-    save = createButton('save');
-    save.position(width+400,height-20);
+    save = createButton('save'); 
+    save.position(width+0.4*width,height-0.2*height);
     save.mousePressed(saveImage);
 
 
@@ -52,6 +52,6 @@ function fillscreen(){
 
 
 function saveImage() {
-  saveCanvas('myCanvas', 'png');
+  saveCanvas("0myCanvas");
 }
 
